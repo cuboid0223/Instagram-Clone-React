@@ -1,0 +1,10 @@
+.signUpModal {
+    &__form{
+        display: flex;
+        flex-direction: column;
+    }
+    &__logo {
+        object-fit: contain;
+        width: 100px;
+    }
+}
