@@ -3,8 +3,7 @@ import React, { useState, useEffect }from 'react';
 
 import Header from './components/Header';
 import Post from './components/Post';
-import SignUpModal from './components/SignUpModal';
-import ImageUpload from './components/ImageUpload';
+import Footer from './components/Footer'
 import './scss/all.css';
 import { db } from './firebase'
 
@@ -16,7 +15,7 @@ function App() {
   // useEffect runs a piece of code based on a specific condition
 
   useEffect( () => {
-      db.collection('posts').onSnapshot(snapshot => {
+      db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
         setPosts(snapshot.docs.map(doc => (
           {
             id: doc.id,//the post id with a random number
@@ -29,13 +28,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SignUpModal />
+     
      
 
       { posts.map( ({id, post}) => (
         <Post
           key={id}
-          userName={post.userName}
+          username={post.username}
           caption={post.caption}
           imageUrl={post.imageUrl}
         />
@@ -44,11 +43,8 @@ function App() {
 
       
       
-      {user.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ) : (
-          <h1>Oops! you need to login!</h1>
-      )}
+      
+      <Footer />
     </div>
   );
 }

@@ -138,8 +138,12 @@ a {
     text-decoration: none;
 }
 
-
-.App{
+body {
     background-color: #fafafa;
+}
+
+.App {
     height: 100vh;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }

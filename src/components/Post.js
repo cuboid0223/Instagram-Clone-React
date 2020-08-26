@@ -3,7 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 import post__avatar from '../static/images/avatar.JPG';
 
 
-const Post = ({ userName, caption, imageUrl }) => {
+const Post = ({ username, caption, imageUrl }) => {
    
 
     return (
@@ -14,7 +14,7 @@ const Post = ({ userName, caption, imageUrl }) => {
                     alt='avatar'
                     src={ post__avatar }
                 />
-                <h3><strong>{userName}</strong></h3>
+                <h3><strong>{username}</strong></h3>
             </div>
             
             <img 
@@ -22,7 +22,7 @@ const Post = ({ userName, caption, imageUrl }) => {
                 src={ imageUrl } 
                 alt='photo' 
             />
-            <h4 className='post__text'> <strong>{ userName }: </strong>{ caption }</h4>
+            <h4 className='post__text'> <strong>{ username }: </strong>{ caption }</h4>
         </div>
     )
 }
