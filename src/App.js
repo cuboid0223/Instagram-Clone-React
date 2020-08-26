@@ -4,6 +4,7 @@ import React, { useState, useEffect }from 'react';
 import Header from './components/Header';
 import Post from './components/Post';
 import SignUpModal from './components/SignUpModal';
+import ImageUpload from './components/ImageUpload';
 import './scss/all.css';
 import { db } from './firebase'
 
@@ -41,6 +42,13 @@ function App() {
       )    
       )}
 
+      
+      
+      {user.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+          <h1>Oops! you need to login!</h1>
+      )}
     </div>
   );
 }

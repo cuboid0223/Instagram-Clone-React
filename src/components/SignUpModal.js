@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import { auth } from '../firebase';
 
+
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -163,6 +164,8 @@ const SignUpModal = () => {
                     <Button onClick={() => setOpen(true)}>註冊</Button>
                 </div>
             )}
+
+            
         </div>
     )
 }
