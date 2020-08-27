@@ -75,6 +75,23 @@ const Post = ({ postId, username, caption, imageUrl }) => {
                 ))}
                
             </div>
+            <form className='post__commentBox'>
+                    <input 
+                        className='post__commentBox__input'
+                        type='text'
+                        placeholder='留言'
+                        value={comment}
+                        onChange={(e) =>{setComment(e.target.value)}}
+                    />
+                    <button
+                        className='post__commentBox__button'
+                        disabled={!comment}
+                        type='submit'
+                        onClick={postComment}
+                    >
+                        Post
+                    </button>
+            </form>
             
             
         </div>
