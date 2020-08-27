@@ -1,0 +1,23 @@
+@mixin desktop {
+    @media(min-width: 768px) {
+        @content
+    }
+}
+
+;
+
+@mixin pad {
+    @media(max-width: 767px) {
+        @content
+    }
+}
+
+;
+
+@mixin iphone {
+    @media(max-width: 568px) {
+        @content
+    }
+}
+
+;

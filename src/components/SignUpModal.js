@@ -64,16 +64,16 @@ const SignUpModal = () => {
             if(authUser){
                 console.log(authUser)// when the user has logged in
                 setUser(authUser)
-                // if(authUser.displayName){
-                //     //don't update username
-                // }else{
-                //     //if we just create someone
-                //     return authUser.updateProfile(
-                //         {
-                //             displayName: username,
-                //         }
-                //     )
-                // }
+                if(authUser.displayName){
+                    //don't update username
+                }else{
+                    //if we just create someone
+                    return authUser.updateProfile(
+                        {
+                            displayName: username,
+                        }
+                    )
+                }
             }else{
                 setUser(null)// when the user has logged out
             }
@@ -85,7 +85,7 @@ const SignUpModal = () => {
     },[user, username]);
 
     return (
-        <div>
+        <div className='signUpModal '>
             {/* Sign up modal */}
             <Modal 
                 open={open}

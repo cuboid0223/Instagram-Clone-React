@@ -4,6 +4,7 @@
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
     margin-bottom: 45px;
+
     &__header {
         padding: 12px 10px;
         display: flex;
@@ -23,8 +24,52 @@
         border-bottom: 1px solid lightgray;
     }
 
+    &__iconBar {
+        display: flex;
+
+        &__icon {
+            padding: 10px;
+        }
+
+        &__markIcon {
+            margin-left: auto;
+        }
+
+        .MuiSvgIcon-fontSizeLarge {
+            font-size: 30px;
+        }
+    }
+
     &__text {
         font-weight: normal;
         padding: 15px 10px;
+        white-space: pre-line;
+    }
+    &__comments{
+        padding-top: 20px;
+        border-top: 1px solid lightgray;
+        p{
+            padding: 10px;
+            background-color: red;
+        }
+    }
+    &__commentBox {
+        display: flex;
+        margin-top: 10px;
+
+        &__input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-top: 1px solid lightgray;
+        }
+
+        &__button {
+            flex: 0;
+            background-color: transparent;
+            color: #6082a3;
+            border: none;
+            border-top: 1px solid lightgray;
+        }
     }
 }

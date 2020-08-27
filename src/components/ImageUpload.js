@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCameraOutlined';
 import firebase from "firebase";
 import { db, storage } from '../firebase';
 
 const ImageUpload = ({username}) => {
+    const useStyles = makeStyles((theme) => ({
+        button: {
+            margin: theme.spacing(1),
+        },
+    }));
+    const classes = useStyles();
+
+
+
     const [caption, setCaption] = useState('')
     const [image, setImage] = useState(null)   
     const [progress, setProgress] = useState(0)
@@ -15,6 +26,7 @@ const ImageUpload = ({username}) => {
             setImage(e.target.files[0])// only chose the first selected photo
         }
     }
+
     const handleUpload = () => {
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
         uploadTask.on(
@@ -54,6 +66,7 @@ const ImageUpload = ({username}) => {
         )
         // setOpenImagePost(false)
     }
+
     return (
         <div className='imageUpload'>
             <img
@@ -63,14 +76,6 @@ const ImageUpload = ({username}) => {
             />
             <progress className="imageUpload__progress" value={progress} max="100"/>
             {/* caption input */}
-            {/* 
-             <input
-                className='imageUpload__caption'
-                type='text'
-                placeholder='input sth'
-                onChange={event => setCaption(event.target.value)}
-                value={caption}/>
-            */}
            
             <textarea 
                 className='imageUpload__caption'
@@ -92,7 +97,16 @@ const ImageUpload = ({username}) => {
                 </IconButton>
             </label>
             {/* submit btn */}
-            <Button className='imageUpload__button' onClick={handleUpload}>upload post</Button>
+           
+            <Button
+                onClick={handleUpload}
+                variant="contained"
+                color="default"
+                className={classes.button, 'imageUpload__button' }
+                startIcon={<CloudUploadIcon />}
+            >
+                Upload
+            </Button>
         </div>
     )
 }

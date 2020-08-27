@@ -1,6 +1,6 @@
 @import './reset';
 @import './variable';
-
+@import './grid';
 
 
 // layout
@@ -8,3 +8,6 @@
 @import './layout/post';
 @import './layout/imageUpload';
 @import './layout/footer';
+@import './layout/signUpModal';
+//page
+@import './page/index';
